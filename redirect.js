@@ -1,38 +1,24 @@
-// Script to handle redirects
-function isValidUrl(data) {
-    if (data == null || data == '' || data == undefined) {
-        return false;
-    }
+function redirectOnOpen() {
+	var url = retrieveUrl();
+	console.log("Original="+url);
 
-    // try {
-    // 	new URL(string);
-    // } catch (_) {
-    // 	return false;  
-    // }
+	var encodedDeeplink = parseRedirectUrl(url);
+	console.log("Encoded Deeplink="+encodedDeeplink);
 
-    return true;
-}
+	var shouldParse = isValidString(encodedDeeplink)
+	console.log("isValidString="+shouldParse);
 
-function retrieveUrl() {
-    var parser = document.createElement('a');
-    parser.href = window.location;
-    return parser.href;
-}
+	if(!shouldParse) {
+		return;
+	}
 
-function parseRedirectUrl(url) {
-    var parts = url.split('?to=');
-    var redirectUrl = parts[1];
-    return redirectUrl;
-}
+	var deeplink = convertFromBase64(encodedDeeplink);
+	console.log("Deeplink="+deeplink);
 
-// function convertToBase64(string) {
-//     return btoa(unescape(encodeURIComponent(string)));
-// }
+	var shouldRedirect = isValidString(deeplink) && isValidUrl(deeplink)
+	console.log("isValidUrl="+shouldRedirect);
 
-// function convertFromBase64(string) {
-//     return decodeURIComponent(escape(window.atob(string)));
-// }
-
-function redirectNow(newUrl) {
-    window.location.replace(deeplink);
+	if(shouldRedirect) {	
+	 	redirectNow(deeplink)
+	}
 }
