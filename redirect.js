@@ -1,24 +1,25 @@
 function redirectOnOpen() {
 	var url = retrieveUrl();
-	console.log("Original="+url);
+	// console.log("Original="+url);
 
 	var encodedDeeplink = parseRedirectUrl(url);
-	console.log("Encoded Deeplink="+encodedDeeplink);
+	// console.log("Encoded Deeplink="+encodedDeeplink);
 
 	var shouldParse = isValidString(encodedDeeplink)
-	console.log("isValidString="+shouldParse);
+	// console.log("isValidString="+shouldParse);
 
 	if(!shouldParse) {
 		return;
 	}
 
 	var deeplink = convertFromBase64(encodedDeeplink);
-	console.log("Deeplink="+deeplink);
+	// console.log("Deeplink="+deeplink);
 
 	var shouldRedirect = isValidString(deeplink) && isValidUrl(deeplink)
-	console.log("isValidUrl="+shouldRedirect);
+	// console.log("isValidUrl="+shouldRedirect);
 
 	if(shouldRedirect) {	
+		document.getElementById('alternateRedirect').innerHTML = '<a href=\"'+deeplink+'\">Click here to redirect</a>';
 	 	redirectNow(deeplink)
 	}
 }

@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="utils.js"></script>
-<script src="convert.js"></script>
-<script src="redirect.js"></script>
+	<script src="utils.js"></script>
+	<script src="convert.js"></script>
+	<script src="redirect.js"></script>
 </head>
 <body>
-	<input id="inputLink" type="text"/>
-	<button onclick="convert()">Convert</button>
-	<div id="outputLink"></div>
+	<!-- Redirect URL --> 
+	<section>
+		<div id="alternateRedirect"></div>
+	</section>
 
-	<script> redirectOnOpen() </script>
-	
+	<!-- URL Generator --> 
+	<section>
+		<input id="inputLink" type="text"/>
+		<button onclick="convert()">Convert</button>
+		<div id="errorMessage"></div>
+		<div id="outputLink"></div>
+	</section>
+
+	<script> redirectOnOpen() </script>	
 </body>
 </html>
