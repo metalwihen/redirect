@@ -1,0 +1,30 @@
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+ <script type="text/javascript" src="redirect.js"></script>
+</head>
+<body>
+
+<input id="inputUrl" type="text"/>
+<button id="btnConv">Convert</button>
+<button id="btnDeConv">DeConvert</button>
+<div id="outputUrl"/>
+
+
+<script type="text/javascript">
+	var url = retrieveUrl();
+	console.log("Original="+url);
+	
+	var deeplink = parseRedirectUrl(url);
+	console.log("Deeplink="+deeplink);
+
+	var isValid = isValidUrl(deeplink)
+	console.log("isValid="+isValid);
+
+	if(isValid){	
+	 redirectNow(deeplink)
+	}
+</script>
+</body>
+</html>
