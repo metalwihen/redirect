@@ -19,7 +19,9 @@ function redirectOnOpen() {
 	// console.log("isValidUrl="+shouldRedirect);
 
 	if(shouldRedirect) {	
-		document.getElementById('alternateRedirect').innerHTML = '<a href=\"'+deeplink+'\">Click here to redirect</a>';
+		document.getElementById('alternateRedirect').innerHTML = '<a href=\"'+deeplink+'\">Click here to redirect</a>';	
+		document.getElementById("manual-redirect").classList.remove('hide');
+	 	
 	 	redirectNow(deeplink)
 	}
 }

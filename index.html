@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
+
 	<script src="utils.js"></script>
 	<script src="convert.js"></script>
 	<script src="redirect.js"></script>
 </head>
-<body>
+<body class="bg-aqua p2">
+
 	<!-- Redirect URL --> 
-	<section>
-		<div id="alternateRedirect"></div>
+	<section id="manual-redirect" class="hide block p2 m1 bg-white col-8 px2 mx-auto center overflow-auto">
+		<div id="alternateRedirect" class="h2"></div>
 	</section>
 
 	<!-- URL Generator --> 
-	<section>
-		<input id="inputLink" type="text"/>
-		<button onclick="convert()">Convert</button>
-		<div id="errorMessage"></div>
-		<div id="outputLink"></div>
+	<section id="redirect-generator" class="block p2 m1 mt2 bg-white col-8 px2 mx-auto center overflow-auto">
+		<div class="h1 mb2">Redirect URL Generator</div>
+
+		<input id="inputLink" type="text" class="field inline-block col-8" placeholder="Enter Deeplink or URL here..." />
+		<button onclick="convert()" class="btn btn-primary bg-black">Convert</button>
+
+		<div id="errorMessage" class="red h5 mt1 hide"></div>
+		<div id="outputLink" class="blue h3 p2 hide"></div>
 	</section>
 
 	<script> redirectOnOpen() </script>	
