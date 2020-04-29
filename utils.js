@@ -47,7 +47,3 @@ function convertToBase64(string) {
 function convertFromBase64(string) {
     return window.atob(string);
 }
-
-function redirectNow(newUrl) {
-    window.location.replace(newUrl);
-}
