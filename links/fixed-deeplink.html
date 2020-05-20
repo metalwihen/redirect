@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="redirect.js"></script>
+	<style>
+		body {
+			background:#00aa13;
+			color:#fff;
+			font-family:Maison Neue Demi,Helvetica Neue,Arial,Helvetica,sans-serif;
+			text-align:center
+		}
+		p {
+			margin:15px;
+			font-size: 1.2em;
+		}
+		a {
+			color:#fff;
+		}		
+	</style>
+</head>
+<body>
+	<!--
+		Edit the href property of the button below to redirect to that link. 
+	    // SAMPLE DEEPLINK 1: href="com.sample.app://section2/page3?argument1=World&argument2=World"
+	    // SAMPLE DEEPLINK 2: href="https://google.com"
+	-->
+	<p align="center"><a id="clickmelink" href="https://google.com">Click here</a></p>
+	
+	<script type="text/javascript">
+		var buttonId = "clickmelink";
+		var deeplink = document.getElementById(buttonId).href;
+
+		redirectNow(deeplink); // doesn't always work
+		redirectViaMouseClick(buttonId); // hack to simulate button click	 	
+	</script>
+</body>
+</html>
